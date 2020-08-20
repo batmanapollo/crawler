@@ -1,6 +1,6 @@
 # About
 
-This is a Simple Crawler implementation in Scala ustin Http4s and Tapir.
+This is a Simple Crawler implementation in Scala using Http4s and Tapir.
 
 # Running the app
 
