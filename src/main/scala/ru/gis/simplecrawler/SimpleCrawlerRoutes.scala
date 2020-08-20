@@ -6,7 +6,7 @@ import cats.implicits._
 import org.http4s.HttpRoutes
 import sttp.tapir.server.http4s.RichHttp4sHttpEndpoint
 
-object SimplecrawlerRoutes {
+object SimpleCrawlerRoutes {
 
   def crawlerRoutes[F[_]: Sync](C: Crawler[F], endpoints: Endpoints)(implicit CS: ContextShift[F]): HttpRoutes[F] = {
     def getTitle(url: String): F[Either[Unit, Crawler.WebsiteWithTitle]] = {

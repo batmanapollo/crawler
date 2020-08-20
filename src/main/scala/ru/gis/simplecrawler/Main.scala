@@ -5,5 +5,5 @@ import cats.implicits._
 
 object Main extends IOApp {
   def run(args: List[String]) =
-    SimplecrawlerServer.stream[IO].compile.drain.as(ExitCode.Success)
+    SimpleCrawlerServer.stream[IO].compile.drain.as(ExitCode.Success)
 }

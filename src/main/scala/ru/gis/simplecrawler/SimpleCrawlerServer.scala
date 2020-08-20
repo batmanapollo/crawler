@@ -11,7 +11,7 @@ import sttp.tapir.redoc.http4s.RedocHttp4s
 
 import scala.concurrent.ExecutionContext.global
 
-object SimplecrawlerServer {
+object SimpleCrawlerServer {
 
   def stream[F[_]: ConcurrentEffect](implicit T: Timer[F], C: ContextShift[F]): Stream[F, Nothing] = {
     for {
@@ -24,7 +24,7 @@ object SimplecrawlerServer {
       // want to extract a segments not checked
       // in the underlying routes.
       httpApp = (
-        SimplecrawlerRoutes.crawlerRoutes[F](crawlerAlg, endpoints) <+>
+        SimpleCrawlerRoutes.crawlerRoutes[F](crawlerAlg, endpoints) <+>
         new RedocHttp4s("Simple Crawler docs", endpoints.openApiYaml).routes[F]
       ).orNotFound
 

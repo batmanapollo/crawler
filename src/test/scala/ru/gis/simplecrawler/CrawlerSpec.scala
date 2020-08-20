@@ -37,7 +37,7 @@ class CrawlerSpec extends org.specs2.mutable.Specification {
   private[this] val retGetTitle: Response[IO] = {
     val getHW = Request[IO](Method.GET, uri"crawler/title/https:%2F%2Fcontent.2gis.ru")
     val crawler = Crawler.impl[IO]
-    SimplecrawlerRoutes.crawlerRoutes(crawler, endpoints).orNotFound(getHW).unsafeRunSync()
+    SimpleCrawlerRoutes.crawlerRoutes(crawler, endpoints).orNotFound(getHW).unsafeRunSync()
   }
 
   private[this] def uriReturns200(response: Response[IO]): MatchResult[Status] =
@@ -52,7 +52,7 @@ class CrawlerSpec extends org.specs2.mutable.Specification {
     val body = List("https://content.2gis.ru", "https://www.google.com")
     val getHW = Request[IO](Method.POST, uri"crawler/title").withEntity(body)
     val crawler = Crawler.impl[IO]
-    SimplecrawlerRoutes.crawlerRoutes(crawler, endpoints).orNotFound(getHW).unsafeRunSync()
+    SimpleCrawlerRoutes.crawlerRoutes(crawler, endpoints).orNotFound(getHW).unsafeRunSync()
   }
 
   private[this] def uriReturnsTwoWebsitesWithTitle(): MatchResult[String] = {
